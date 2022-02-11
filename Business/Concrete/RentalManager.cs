@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public IResult Delete(Rental rental)
         {
-            //Bu kodu RentalValidator da yazmayı unutma.
+            
             if (rental.ReturnDate != null)
             {
                 _rentalDal.Delete(rental);
@@ -54,7 +54,7 @@ namespace Business.Concrete
 
         public IDataResult<Rental> GetById(int id)
         {
-            return new SuccessDataResult<Rental>(_rentalDal.Get(p => p.RentalId == id));
+            return new SuccessDataResult<Rental>(_rentalDal.Get(p => p.Id == id));
         }
 
         public IResult Update(Rental rental)

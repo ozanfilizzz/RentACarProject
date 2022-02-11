@@ -6,10 +6,10 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    public class CarImages : IEntity
+    public class CarImage : IEntity
     {   
         [Key]
-        public int CarImageId { get; set; }
+        public int Id { get; set; }
         public int CarId { get; set; }
         public string ImagePath { get; set; }
         public DateTime Date { get; set; }
