@@ -69,7 +69,7 @@ namespace Business.Concrete
         public IDataResult<Car> GetById(int id)
         {
 
-            return new SuccessDataResult<Car>(_carDal.Get(p => p.CarId == id));
+            return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == id));
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
@@ -104,9 +104,9 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        private IResult ChekIfCarCountOfCategoryCorrect(int categoryId)
+        private IResult ChekIfCarCountOfCategoryCorrect(int id)
         {
-            var result = _carDal.GetAll(p => p.CategoryId == categoryId).Count();
+            var result = _carDal.GetAll(p => p.CategoryId == id).Count();
             if (result >= 10)
             {
                 return new ErrorResult(CarMessages.CarCountOfCategoryError);
