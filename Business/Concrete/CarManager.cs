@@ -100,6 +100,12 @@ namespace Business.Concrete
             return new SuccessResult(CarMessages.CarUpdated);
         }
 
+        public IDataResult<List<Car>> GetCarsByCategoryId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.CategoryId == id));
+        }
+
+        #region BusinessRulesParticle
         private IResult ChekIfCarNameExists(string carName)
         {
             var result = _carDal.GetAll(p => p.CarName == carName).Any();
@@ -130,6 +136,8 @@ namespace Business.Concrete
 
             return new SuccessResult();
         }
+        #endregion
 
+      
     }
 }
